@@ -45,7 +45,7 @@ def encode(number, base):
         n += 1
 
     while n > 0:
-        div, remainder = divmod(number, (base**(n-1)))
+        div = int(number/(base**(n-1)))
         convert = min(div, (base-1))
         encoded += strings[convert]
         number -= convert * base**(n-1)
