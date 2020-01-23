@@ -19,6 +19,14 @@ def decode(digits, base):
     assert 2 <= base <= 36, 'base is out of range: {}'.format(base)
     # TODO: Decode digits from binary (base 2)
     # ...
+    #Base 2 only
+    decoded = 0
+    digits = digits[::-1]
+    for i, num in enumerate(digits):
+        if int(num) > 0:
+            decoded += base**i
+
+    return decoded
 
     # TODO: Decode digits from hexadecimal (base 16)
     # ...
