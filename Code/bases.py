@@ -18,7 +18,7 @@ def decode(digits, base):
     # Handle up to base 36 [0-9a-z]
     assert 2 <= base <= 36, 'base is out of range: {}'.format(base)
     decoded = 0
-    strings = string.digits + string.ascii_uppercase
+    strings = string.digits + string.ascii_lowercase
     digits = digits[::-1]
     for i, num in enumerate(digits):
         decoded += base**i * strings.index(num)
@@ -37,7 +37,7 @@ def encode(number, base):
     # Handle unsigned numbers only for now
     assert number >= 0, 'number is negative: {}'.format(number)
     encoded = ''
-    strings = string.digits + string.ascii_uppercase
+    strings = string.digits + string.ascii_lowercase
     n = 0
     if number == 0: #Edge case
         return '0'
