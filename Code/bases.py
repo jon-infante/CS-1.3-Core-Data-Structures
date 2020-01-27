@@ -47,9 +47,8 @@ def encode(number, base):
 
     while n > 0:
         div = int(number/(base**(n-1)))
-        convert = min(div, (base-1))
-        encoded += strings[convert]
-        number -= convert * base**(n-1)
+        encoded += strings[div]
+        number -= div * base**(n-1)
         n -= 1
 
     return encoded
@@ -85,4 +84,5 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    # main()
+    print(convert('255', 10, 2))
