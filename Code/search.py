@@ -47,7 +47,6 @@ def binary_search_iterative(array, item):
     # TODO: implement binary search iteratively here
     min = 0
     max = len(array) - 1
-    target = (max + min) // 2
     while max >= min:
         target = (max + min) // 2
         if item > array[target]:
