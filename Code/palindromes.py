@@ -19,7 +19,11 @@ def is_palindrome(text):
 
 
 def is_palindrome_iterative(text):
-    # TODO: implement the is_palindrome function iteratively here
+    """Removes all punctuation from the string, and iterates over the left
+    and right indexes simultaneously. If they aren't equal, then it isn't a palindrome
+
+    text = str
+    """
     clean = " ?!,.;:-_'"
     for char in clean:
         text = text.replace(char, '')
@@ -33,13 +37,18 @@ def is_palindrome_iterative(text):
         left += 1
         right -= 1
     return True
-    # once implemented, change is_palindrome to call is_palindrome_iterative
-    # to verify that your iterative implementation passes all tests
 
 
 def is_palindrome_recursive(text, left=None, right=None):
-    # TODO: implement the is_palindrome function recursively here
-    #6/7 tests
+    """Removes all punctuation from the string, and recursively checks the left
+    and right indexes simultaneously. If they aren't equal, then it isn't a palindrome
+
+    text = str
+    left = int
+    right = int
+
+    #6/7 tests done
+    """
     if left == None:
         left = 0
         right = len(text) - 1
@@ -53,8 +62,6 @@ def is_palindrome_recursive(text, left=None, right=None):
             return False
         is_palindrome_recursive(text, left+1, right-1)
     return True
-    # once implemented, change is_palindrome to call is_palindrome_recursive
-    # to verify that your iterative implementation passes all tests
 
 def main():
     import sys
