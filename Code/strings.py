@@ -31,13 +31,10 @@ def find_all_indexes(text, pattern):
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     indices = []
-    if len(pattern) < 1: #Edge case if pattern is None
-        for i in range(len(text)):
-            indices.append(i)
-        return indices
     for i in range(0, (len(text) - len(pattern) + 1)):
-        if text[i:(i+len(pattern))] == pattern:
-            indices.append(i)
+        if len(indices) <= len(text) - 1:
+            if text[i:(i+len(pattern))] == pattern or text[i:i+len(pattern)] == '':
+                indices.append(i)
     return indices
 
 
