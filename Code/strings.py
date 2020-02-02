@@ -33,7 +33,7 @@ def find_all_indexes(text, pattern):
     indices = []
     for i in range(0, (len(text) - len(pattern) + 1)):
         if len(indices) <= len(text) - 1: #Used for when pattern is None
-            if text[i:(i+len(pattern))] == pattern or text[i:i+len(pattern)] == '':
+            if text[i:(i+len(pattern))] == pattern:
                 indices.append(i)
     return indices
 
