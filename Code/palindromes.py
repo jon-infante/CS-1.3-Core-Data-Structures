@@ -57,7 +57,7 @@ def is_palindrome_recursive(text, left=None, right=None):
             text = text.replace(char, '')
     if len(text) < 1:
         return True
-    if left <= right and right <= len(text)-1:
+    if left <= right and right < len(text):
         if text[left].lower() != text[right].lower():
             return False
         is_palindrome_recursive(text, left+1, right-1)
