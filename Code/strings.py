@@ -30,15 +30,15 @@ def find_all_indexes(text, pattern):
     or an empty list if not found."""
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
-    indexes = []
+    indices = []
     if len(pattern) < 1: #Edge case if pattern is an empty space
         for i in range(len(text)):
-            indexes.append(i)
-        return indexes
+            indices.append(i)
+        return indices
     for i in range(0, (len(text) - len(pattern) + 1)):
         if text[i:(i+len(pattern))] == pattern:
-            indexes.append(i)
-    return indexes
+            indices.append(i)
+    return indices
 
 
 def test_string_algorithms(text, pattern):
