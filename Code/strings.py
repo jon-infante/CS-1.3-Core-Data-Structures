@@ -31,7 +31,7 @@ def find_all_indexes(text, pattern):
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
     indices = []
-    if len(pattern) < 1: #Edge case if pattern is an empty space
+    if len(pattern) < 1: #Edge case if pattern is None
         for i in range(len(text)):
             indices.append(i)
         return indices
