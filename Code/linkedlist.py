@@ -108,10 +108,7 @@ class LinkedList(object):
             new_node.next = node
             node = new_node
             self.size += 1
-
-
-
-
+            
     def append(self, item):
         """Insert the given item at the tail of this linked list.
         Best and worst case running time: O(1) Instant access to the tail"""
