@@ -70,12 +70,10 @@ class LinkedList(object):
             raise ValueError('List index out of range: {}'.format(index))
         # TODO: Find the node at the given index and return its data
         node = self.head
-        i = 0
-        while node is not None:
+        for i in range(index):
             if i == index:
                 return node.data
             node = node.next
-            i += 1
         return node.data
 
     def insert_at_index(self, index, item):
@@ -83,7 +81,7 @@ class LinkedList(object):
         raise ValueError if the given index is out of range of the list size.
         Best case running time: O(1) when the linked list is empty, or has an
         index of 0 / the size of the array.
-        Worst case running time: O(n) if the index is at the end of the linked list [TODO]"""
+        Worst case running time: O(n) if the index is at the end of the linked list"""
         # Check if the given index is out of range and if so raise an error
         if not (0 <= index <= self.size):
             raise ValueError('List index out of range: {}'.format(index))
@@ -163,7 +161,7 @@ class LinkedList(object):
         """Replace the given old_item in this linked list with given new_item
         using the same node, or raise ValueError if old_item is not found.
         Best case running time: O(1) if the old_item is at the head.
-        Worst case running time: O(n) if the old_item is at the tail. [TODO]"""
+        Worst case running time: O(n) if the old_item is at the tail."""
         # TODO: Find the node containing the given old_item and replace its
         # data with new_item, without creating a new node object
         node = self.head
