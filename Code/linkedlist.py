@@ -176,9 +176,6 @@ class LinkedList(object):
 
         raise ValueError('Item not found: {}'.format(old_item))
 
-
-
-
     def delete(self, item):
         """Delete the given item from this linked list, or raise ValueError.
         Best case running time: O(1) when the item to delete is at the head.
