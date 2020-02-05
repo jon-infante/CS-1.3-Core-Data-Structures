@@ -9,7 +9,14 @@ def linear_search(array, item):
 
 
 def linear_search_iterative(array, item):
-    # loop over all array values until item is found
+    """Incrementing index until item is found in the array iteratively.
+
+        array: list
+        item: str
+
+        Best case running time: O(1) if the item is at the beginning of the array.
+        Worst case running time: O(n) if the item is last in the array.
+        """
     for index, value in enumerate(array):
         if item == value:
             return index  # found
@@ -21,6 +28,9 @@ def linear_search_recursive(array, item, index=0):
 
         array: list
         item: str
+
+        Best case running time: O(1) if the item is at the beginning of the array.
+        Worst case running time: O(n) if the item is last in the array.
         """
     if index > (len(array) - 1):
         return None
@@ -44,7 +54,11 @@ def binary_search(array, item):
 
 
 def binary_search_iterative(array, item):
-    # TODO: implement binary search iteratively here
+    """Searches through a sorted array and navigates through it iteratively using
+    binary search.
+    Best case running time: O(1) if the item is in the middle of the array.
+    Worst case running time: O(logn) if the item is last in the binary search.
+    """
     min = 0
     max = len(array) - 1
     while max >= min:
@@ -62,7 +76,11 @@ def binary_search_iterative(array, item):
 
 
 def binary_search_recursive(array, item, left=None, right=None):
-    # TODO: implement binary search recursively here
+    """Searches through a sorted array and navigates through it recursively using
+    binary search.
+    Best case running time: O(1) if the item is in the middle of the array.
+    Worst case running time: O(logn) if the item is last in the binary search.
+    """
     if left == None:
         left = 0
         right = len(array) - 1

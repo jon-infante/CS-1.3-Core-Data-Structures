@@ -108,7 +108,7 @@ class LinkedList(object):
             new_node.next = node
             node = new_node
             self.size += 1
-            
+
     def append(self, item):
         """Insert the given item at the tail of this linked list.
         Best and worst case running time: O(1) Instant access to the tail"""
@@ -162,8 +162,8 @@ class LinkedList(object):
     def replace(self, old_item, new_item):
         """Replace the given old_item in this linked list with given new_item
         using the same node, or raise ValueError if old_item is not found.
-        Best case running time: ??? under what conditions? [TODO]
-        Worst case running time: ??? under what conditions? [TODO]"""
+        Best case running time: O(1) if the old_item is at the head.
+        Worst case running time: O(n) if the old_item is at the tail. [TODO]"""
         # TODO: Find the node containing the given old_item and replace its
         # data with new_item, without creating a new node object
         node = self.head
@@ -182,7 +182,7 @@ class LinkedList(object):
     def delete(self, item):
         """Delete the given item from this linked list, or raise ValueError.
         Best case running time: O(1) when the item to delete is at the head.
-        Worst case running time: O(n when the item to delete is at the tail."""
+        Worst case running time: O(n) when the item to delete is at the tail."""
         # Start at the head node
         node = self.head
         # Keep track of the node before the one containing the given item
