@@ -88,7 +88,7 @@ class ArrayStack(object):
         or None if this stack is empty."""
         #Returns the top item in the stack
         if not self.is_empty():
-            return self.list[len(self.list)-1]
+            return self.list[self.length()-1]
 
         return None
 
@@ -99,8 +99,8 @@ class ArrayStack(object):
         if self.is_empty():
             raise ValueError('The queue is empty.')
         #Takes the value of the top of the stack, then removes it
-        top = self.list[len(self.list)-1]
-        self.list.pop(len(self.list)-1)
+        top = self.list[(self.length())-1]
+        self.list.pop(self.length()-1)
 
         return top
 
