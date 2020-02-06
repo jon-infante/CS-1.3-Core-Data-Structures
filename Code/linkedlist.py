@@ -90,8 +90,7 @@ class LinkedList(object):
 
         #When the linked list is empty
         if self.is_empty():
-            self.head = new_node
-            self.tail = new_node
+            self.head, self.tail = new_node, new_node
             self.size += 1
         elif index == 0:
             self.prepend(item)
