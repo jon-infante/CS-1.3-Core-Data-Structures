@@ -95,7 +95,7 @@ class LinkedList(object):
         elif index == 0:
             self.prepend(item)
         #Appends at the end of the list
-        elif index == self.size:
+        elif index == self.length():
             self.append(item)
         else:
             node = self.head
