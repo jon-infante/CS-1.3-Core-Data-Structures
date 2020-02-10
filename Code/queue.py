@@ -83,12 +83,14 @@ class ArrayQueue(object):
 
     def enqueue(self, item):
         """Insert the given item at the back of this queue.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: O(1) – Last item in the list; no shifting the array."""
         self.list.append(item)
 
     def front(self):
         """Return the item at the front of this queue without removing it,
-        or None if this queue is empty."""
+        or None if this queue is empty.
+        Running time: O(1) – We have instant access to any index.
+        """
         #If the queue is not empty
         if not self.is_empty():
             return self.list[0]
@@ -98,7 +100,7 @@ class ArrayQueue(object):
     def dequeue(self):
         """Remove and return the item at the front of this queue,
         or raise ValueError if this queue is empty.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: O(n) – We have to shift each item over in the array."""
         if self.is_empty():
             raise ValueError('The queue is empty.')
 

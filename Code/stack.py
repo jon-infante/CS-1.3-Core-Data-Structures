@@ -29,12 +29,14 @@ class LinkedStack(object):
 
     def push(self, item):
         """Insert the given item on the top of this stack.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: O(1) – We have instant access to the tail."""
         self.list.append(item)
 
     def peek(self):
         """Return the item on the top of this stack without removing it,
-        or None if this stack is empty."""
+        or None if this stack is empty.
+        Running time: O(1) – We have instant access to the tail.
+        """
         if not self.is_empty():
             return self.list.tail.data
         return None
@@ -42,7 +44,7 @@ class LinkedStack(object):
     def pop(self):
         """Remove and return the item on the top of this stack,
         or raise ValueError if this stack is empty.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: O(1) – We have instant access to the tail."""
         if self.is_empty():
             raise ValueError("Queue is Empty")
 
@@ -80,12 +82,14 @@ class ArrayStack(object):
 
     def push(self, item):
         """Insert the given item on the top of this stack.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: O(1) – We have instant access to an index, no shifting."""
         self.list.append(item)
 
     def peek(self):
         """Return the item on the top of this stack without removing it,
-        or None if this stack is empty."""
+        or None if this stack is empty.
+        Running time: O(1) – We have instant access to an index.
+        """
         #Returns the top item in the stack
         if not self.is_empty():
             return self.list[self.length()-1]
@@ -95,7 +99,7 @@ class ArrayStack(object):
     def pop(self):
         """Remove and return the item on the top of this stack,
         or raise ValueError if this stack is empty.
-        Running time: O(???) – Why? [TODO]"""
+        Running time: O(1) – We delete the last item in the list, no shifting over."""
         if self.is_empty():
             raise ValueError('The queue is empty.')
         #Takes the value of the top of the stack, then removes it
