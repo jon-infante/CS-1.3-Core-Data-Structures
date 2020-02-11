@@ -54,6 +54,35 @@ class LinkedQueue(object):
 
         return front
 
+    def push_front(self, item):
+        """Insert item to the front of the queue.
+        Running time: O(1) - We have instant access to the head."""
+        self.list.prepend(item)
+
+    def push_back(self, item):
+        """Insert item to the back of the queue.
+        Running time: O(1) - We have instant access to the tail."""
+        self.list.append(item)
+
+    def pop_front(self):
+        """Delete item at the front of the queue.
+        Running time: O(1) - We have instant access to the head."""
+        if self.is_empty():
+            raise ValueError("Queue is Empty")
+
+        front = self.list.head.data
+        self.list.delete(front)
+
+    def pop_back(self):
+        """Delete item at the back of the queue.
+        Running time: O(n) - We have to traverse the length of the linked list."""
+        if self.is_empty():
+            raise ValueError("Queue is Empty")
+
+        back = self.list.tail.data
+        self.list.delete(back)
+
+
 # Implement ArrayQueue below, then change the assignment at the bottom
 # to use this Queue implementation to verify it passes all tests
 class ArrayQueue(object):
