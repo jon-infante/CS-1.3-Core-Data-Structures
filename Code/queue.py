@@ -57,12 +57,12 @@ class LinkedQueue(object):
     def push_front(self, item):
         """Insert item to the front of the queue.
         Running time: O(1) - We have instant access to the head."""
-        self.list.prepend(item)
+        self.list.append(item)
 
     def push_back(self, item):
         """Insert item to the back of the queue.
         Running time: O(1) - We have instant access to the tail."""
-        self.list.append(item)
+        self.list.prepend(item)
 
     def pop_front(self):
         """Delete item at the front of the queue. Raise ValueError if the
@@ -75,6 +75,8 @@ class LinkedQueue(object):
         front = self.list.head.data
         self.list.delete(front)
 
+        return front
+
     def pop_back(self):
         """Delete item at the back of the queue. Raise ValueError if the
         queue is empty.
@@ -85,6 +87,8 @@ class LinkedQueue(object):
 
         back = self.list.tail.data
         self.list.delete(back)
+
+        return back
 
 
 # Implement ArrayQueue below, then change the assignment at the bottom
@@ -146,4 +150,4 @@ class ArrayQueue(object):
 # Implement LinkedQueue and ArrayQueue above, then change the assignment below
 # to use each of your Queue implementations to verify they each pass all tests
 # Queue = LinkedQueue
-Queue = ArrayQueue
+Queue = LinkedQueue

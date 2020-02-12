@@ -49,19 +49,23 @@ def is_palindrome_recursive(text, left=None, right=None):
 
     #6/7 tests done
     """
-    if left == None:
+    if text == "":
+        return True
+    if left is None:
         left = 0
         right = len(text) - 1
-        clean = " ?!,.;:-_'"
-        for char in clean:
-            text = text.replace(char, '')
-    if len(text) < 1:
+
+    while not text[left].isalnum():
+        left += 1
+    while not text[right].isalnum():
+        right -= 1
+
+    if text[left].lower() != text[right].lower():
+        return False
+    elif left >= right:
         return True
-    if left <= right and right < len(text):
-        if text[left].lower() != text[right].lower():
-            return False
-        is_palindrome_recursive(text, left+1, right-1)
-    return True
+    else:
+        return is_palindrome_recursive(text, left + 1, right - 1)
 
 
 def main():
