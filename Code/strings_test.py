@@ -20,6 +20,9 @@ class StringsTest(unittest.TestCase):
         # TODO: Write more positive test cases with assert is True statements
         # ...
         assert contains('bbbc', 'bc') is True
+        assert contains('dduea', 'ue') is True
+        assert contains('assdfuu', 'fu') is True
+
 
     def test_contains_with_non_matching_patterns(self):
         # Negative test cases (counterexamples) with non-matching patterns
@@ -30,6 +33,9 @@ class StringsTest(unittest.TestCase):
         # TODO: Write more negative test cases with assert is False statements
         # ...
         assert contains('chicken', 'dog') is False
+        assert contains('cupcake', 'cat') is False
+        assert contains('disrupt', 'dist') is False
+
 
     def test_contains_with_complex_patterns(self):
         # Difficult test cases (examples) with complex patterns
@@ -41,6 +47,9 @@ class StringsTest(unittest.TestCase):
         # You'll need a lot more than this to test your algorithm's robustness
         # ...
         assert contains('apple', 'pl') is True
+        assert contains('application', 'cat') is True
+        assert contains('vineyard', 'ney') is True
+
 
     def test_find_index_with_matching_patterns(self):
         # Positive test cases (examples) with matching patterns
@@ -56,6 +65,9 @@ class StringsTest(unittest.TestCase):
         # TODO: Write more positive test cases with assert equal int statements
         # ...
         assert find_index('true', 'ue') == 2
+        assert find_index('youtube', 'ou') == 1
+        assert find_index('porcupine', 'in') == 6
+
 
     def test_find_index_with_non_matching_patterns(self):
         # Negative test cases (counterexamples) with non-matching patterns
@@ -66,6 +78,9 @@ class StringsTest(unittest.TestCase):
         # TODO: Write more negative test cases with assert is None statements
         # ...
         assert find_index('gopher', 'gob') is None
+        assert find_index('rabbit', 'rat') is None
+        assert find_index('raccoon', 'con') is None
+
 
     def test_find_index_with_complex_patterns(self):
         # Difficult test cases (examples) with complex patterns
@@ -83,6 +98,9 @@ class StringsTest(unittest.TestCase):
         # You'll need a lot more than this to test your algorithm's robustness
         # ...
         assert find_index('goes through this', 'thr') == 5
+        assert find_index('thinking out thoroughly', 'thor') == 13
+        assert find_index('apply this to my application', 'appli') == 17
+
 
     def test_find_all_indexes_with_matching_patterns(self):
         # Positive test cases (examples) with matching patterns
@@ -98,6 +116,9 @@ class StringsTest(unittest.TestCase):
         # TODO: Write more positive test cases with assert equal list statements
         # ...
         assert find_all_indexes('extreme', 'e') == [0, 4, 6]
+        assert find_all_indexes('artistic', 'i') == [3, 6]
+        assert find_all_indexes('slicing', 'n') == [5]
+
 
     def test_find_all_indexes_with_non_matching_patterns(self):
         # Negative test cases (counterexamples) with non-matching patterns
@@ -107,7 +128,10 @@ class StringsTest(unittest.TestCase):
         assert find_all_indexes('abc', 'abz') == []  # first 2 letters, but not last
         # TODO: Write more negative test cases with assert equal list statements
         # ...
-        assert find_all_indexes('banana', 'bna') == []
+        assert find_all_indexes('chickasd', 'cick') == []
+        assert find_all_indexes('understanding', 'app') == []
+        assert find_all_indexes('pineapple', 'aple') == []
+
 
     def test_find_all_indexes_with_complex_patterns(self):
         # Difficult test cases (examples) with complex patterns
@@ -125,6 +149,8 @@ class StringsTest(unittest.TestCase):
         # You'll need a lot more than this to test your algorithm's robustness
         # ...
         assert find_all_indexes('juno juniper', 'jun') == [0, 5]
+        assert find_all_indexes('bananastring"test', 'tes') == [13]
+        assert find_all_indexes('kickstarter,go todart', 'art') == [6, 18]
 
 
 if __name__ == '__main__':
