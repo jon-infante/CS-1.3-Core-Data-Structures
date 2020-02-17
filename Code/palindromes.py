@@ -18,6 +18,11 @@ def is_palindrome(text):
     # return is_palindrome_iterative(text)
     return is_palindrome_recursive(text)
 
+def palindrome_cleaner(text):
+    clean = " ?!,.;:-_'"
+    for char in clean:
+        text = text.replace(char, '')
+    return text
 
 def is_palindrome_iterative(text):
     """Removes all punctuation from the string, and iterates over the left
@@ -25,9 +30,7 @@ def is_palindrome_iterative(text):
 
     text = str
     """
-    clean = " ?!,.;:-_'"
-    for char in clean:
-        text = text.replace(char, '')
+    text = palindrome_cleaner(text)
     left = 0
     right = len(text) - 1
     if len(text) < 1:
