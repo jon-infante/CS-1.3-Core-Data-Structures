@@ -105,7 +105,7 @@ class HashTable(object):
     def set(self, key, value):
         """Insert or update the given key with its associated value.
         Best case running time: O(1) if the item is first in the bucket.
-        Worst case running time: O(l) if we have to loop through an entire bucket."""
+        Worst case running time: O(1) because we have instant access to the tail."""
         # Find the bucket the given key belongs in
         index = self._bucket_index(key)
         bucket = self.buckets[index]
