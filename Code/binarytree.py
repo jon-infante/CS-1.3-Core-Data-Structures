@@ -30,9 +30,9 @@ class BinaryTreeNode(object):
             return 0
 
         left, right = 0, 0
-        if self.left != None:
+        if self.left is not None:
             left = self.left.height() + 1
-        if self.right != None:
+        if self.right is not None:
             right = self.right.height() + 1
 
         return max(left, right)
