@@ -21,24 +21,21 @@ class BinaryTreeNode(object):
         """Return True if this node is a branch (has at least one child)."""
         return self.left != None or self.right != None
 
-    def height(self, left=None, right=None):
+    def height(self):
         """Return the height of this node (the number of edges on the longest
         downward path from this node to a descendant leaf node).
-        TODO: Best and worst case running time: ??? under what conditions?"""
+        Best and worst case running time: O(H) for traversing through the height
+        of the tree."""
         if self is None:
             return 0
 
-        L_Height, R_Height = 0, 0
-
+        left, right = 0, 0
         if self.left != None:
-            L_Height = self.left.height() + 1
+            left = self.left.height() + 1
         if self.right != None:
-            R_Height = self.right.height() + 1
+            right = self.right.height() + 1
 
-        if L_Height > R_Height:
-            return L_Height
-        return R_Height 
-
+        return max(left, right)
 
 
 class BinarySearchTree(object):
