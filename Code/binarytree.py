@@ -62,8 +62,6 @@ class BinarySearchTree(object):
         downward path from this tree's root node to a descendant leaf node).
         Best and worst case running time: O(h) where h is the height of
         the tree."""
-        # TODO: Check if root node has a value and if so calculate its height
-        # ...
         if self.root is not None:
             return self.root.height()
         return 0
@@ -72,7 +70,8 @@ class BinarySearchTree(object):
     def contains(self, item):
         """Return True if this binary search tree contains the given item.
         Best case running time: O(1) if the first node satisfies the condition.
-        Worst case running time: O(logn) if the node is the last one we find."""
+        Worst case running time: O(logn) if the node is the last one we find and
+        the tree is even and ordered."""
         # Find a node with the given item, if any
         node = self._find_node_recursive(item, self.root)
         # Return True if a node was found, or False
@@ -82,7 +81,8 @@ class BinarySearchTree(object):
         """Return an item in this binary search tree matching the given item,
         or None if the given item is not found.
         Best case running time: O(1) if the first node satisfies the condition.
-        Worst case running time: O(logn) if the node is the last one we find."""
+        Worst case running time: O(logn) if the node is the last one we find and
+        the tree is even and ordered."""
         # Find a node with the given item, if any
         node = self._find_node_recursive(item, self.root)
         # TODO: Return the node's data if found, or None
@@ -91,7 +91,8 @@ class BinarySearchTree(object):
     def insert(self, item):
         """Insert the given item in order into this binary search tree.
         Best case running time: O(1) if the first node satisfies the condition.
-        Worst case running time: O(logn) if the node is the last one we find."""
+        Worst case running time: O(logn) if the node is the last one we find and
+        the tree is even and ordered."""
         # Handle the case where the tree is empty
         if self.is_empty():
             # TODO: Create a new root node
@@ -117,7 +118,8 @@ class BinarySearchTree(object):
         or None if the given item is not found. Search is performed iteratively
         starting from the root node.
         Best case running time: O(1) if the first node satisfies the condition.
-        Worst case running time: O(logn) if the node is the last one we find."""
+        Worst case running time: O(logn) if the node is the last one we find and
+        the tree is even and ordered."""
         # Start with the root node
         node = self.root
         # Loop until we descend past the closest leaf node
@@ -142,7 +144,8 @@ class BinarySearchTree(object):
         or None if the given item is not found. Search is performed recursively
         starting from the given node (give the root node to start recursion).
         Best case running time: O(1) if the first node satisfies the condition.
-        Worst case running time: O(logn) if the node is the last one we find."""
+        Worst case running time: O(logn) if the node is the last one we find and
+        the tree is even and ordered."""
         # Check if starting node exists
         if node is None:
             # Not found (base case)
@@ -166,7 +169,8 @@ class BinarySearchTree(object):
         in this tree, or None if this tree is empty or has only a root node.
         Search is performed iteratively starting from the root node.
         Best case running time: O(1) if the first node satisfies the condition.
-        Worst case running time: O(logn) if the node is the last one we find."""
+        Worst case running time: O(logn) if the node is the last one we find and
+        the tree is even and ordered."""
         # Start with the root node and keep track of its parent
         node = self.root
         parent = None
