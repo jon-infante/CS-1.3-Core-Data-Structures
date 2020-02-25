@@ -70,7 +70,7 @@ class BinarySearchTree(object):
     def contains(self, item):
         """Return True if this binary search tree contains the given item.
         Best case running time: O(1) if the first node satisfies the condition.
-        Worst case running time: O(h) if the node is the last one we find and
+        Worst case running time: O(logn) if the node is the last one we find and
         the tree is even and ordered."""
         # Find a node with the given item, if any
         node = self._find_node_recursive(item, self.root)
@@ -81,7 +81,7 @@ class BinarySearchTree(object):
         """Return an item in this binary search tree matching the given item,
         or None if the given item is not found.
         Best case running time: O(1) if the first node satisfies the condition.
-        Worst case running time: O(h) if the node is the last one we find and
+        Worst case running time: O(logn) if the node is the last one we find and
         the tree is even and ordered."""
         # Find a node with the given item, if any
         node = self._find_node_recursive(item, self.root)
@@ -91,7 +91,7 @@ class BinarySearchTree(object):
     def insert(self, item):
         """Insert the given item in order into this binary search tree.
         Best case running time: O(1) if the first node satisfies the condition.
-        Worst case running time: O(h) if the node is the last one we find and
+        Worst case running time: O(logn) if the node is the last one we find and
         the tree is even and ordered."""
         # Handle the case where the tree is empty
         if self.is_empty():
@@ -118,7 +118,7 @@ class BinarySearchTree(object):
         or None if the given item is not found. Search is performed iteratively
         starting from the root node.
         Best case running time: O(1) if the first node satisfies the condition.
-        Worst case running time: O(h) if the node is the last one we find and
+        Worst case running time: O(logn) if the node is the last one we find and
         the tree is even and ordered."""
         # Start with the root node
         node = self.root
@@ -144,7 +144,7 @@ class BinarySearchTree(object):
         or None if the given item is not found. Search is performed recursively
         starting from the given node (give the root node to start recursion).
         Best case running time: O(1) if the first node satisfies the condition.
-        Worst case running time: O(h) if the node is the last one we find and
+        Worst case running time: O(logn) if the node is the last one we find and
         the tree is even and ordered."""
         # Check if starting node exists
         if node is None:
@@ -169,7 +169,7 @@ class BinarySearchTree(object):
         in this tree, or None if this tree is empty or has only a root node.
         Search is performed iteratively starting from the root node.
         Best case running time: O(1) if the first node satisfies the condition.
-        Worst case running time: O(h) if the node is the last one we find and
+        Worst case running time: O(logn) if the node is the last one we find and
         the tree is even and ordered."""
         # Start with the root node and keep track of its parent
         node = self.root
@@ -326,13 +326,14 @@ class BinarySearchTree(object):
         """Traverse this binary tree with iterative level-order traversal (BFS).
         Start at the given node and visit each node with the given function.
         Running time: O(n) as we are searching the entire tree.
-        Memory usage: O(h) based off the height of the tree."""
+        Memory usage: O(n) based off the entire size of the tree, more specficially
+        n/2 nodes."""
         # TODO: Create queue to store nodes not yet traversed in level-order
         queue = Queue()
         # TODO: Enqueue given starting node
         queue.enqueue(start_node)
         # TODO: Loop until queue is empty
-        while not queue.length() == 0:
+        while queue.length() > 0:
             # TODO: Dequeue node at front of queue
             node = queue.dequeue()
             # TODO: Visit this node's data with given function
