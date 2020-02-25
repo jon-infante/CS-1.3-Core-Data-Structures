@@ -239,7 +239,7 @@ class BinarySearchTree(object):
         Running time: O(n) as we are searching the entire tree.
         Memory usage: O(n) for storing all n nodes."""
         # TODO: Traverse left subtree, if it exists
-        if node != None:
+        if node is not None:
             self._traverse_in_order_recursive(node.left, visit)
         # TODO: Visit this node's data with given function
             visit(node.data)
