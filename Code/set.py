@@ -52,7 +52,6 @@ class HashSet(object):
 
     def difference(self, other_set):
         """Return a new set that is the difference of this set and other_set."""
-        new_set = HashSet()
         pass
 
     def is_subset(self, other_set):
