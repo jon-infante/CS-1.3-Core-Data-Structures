@@ -48,10 +48,30 @@ class SetTest(unittest.TestCase):
         assert set.contains('Q') is False
         with self.assertRaises(KeyError):
             set.remove('Q')  # Element doesn't exist anymore
-    
 
+    def test_union(self):
+        elements = ['A', 'C', 'D', 'F']
+        elements2 = ['A', 'B', 'D', 'F', 'G', 'H']
+        elements3 = ['C', 'Y', 'T', 'A']
+        set = HashSet(elements)
+        set2 = HashSet(elements2)
+        set3 = HashSet(elements3)
+        self.assertCountEqual(set.union(set2).hash.values(), [('A', 'A'),
+        ('B', 'B'), ('C', 'C'), ('D', 'D'), ('F', 'F'), ('G', 'G'), ('H', 'H')])  # Ignore item order
+        self.assertCountEqual(set.union(set3).hash.values(), [('A', 'A'),
+        ('C', 'C'), ('D', 'D'), ('F', 'F'), ('T', 'T'), ('Y', 'Y')])  # Ignore item order
 
-
+    # def test_intersection(self):
+    #     elements = ['0', 'B', 'C', 'K']
+    #     elements2 = ['0', 'D', 'E', 'C', 'Y', 'K']
+    #     elements3 = ['B', 'D', 'P', 'K', 'G', '9']
+    #     set = HashSet(elements)
+    #     set2 = HashSet(elements2)
+    #     set3 = HashSet(elements3)
+    #     self.assertCountEqual(set.intersection(set2).hash.values(), [('0', '0'),
+    #     ('C', 'C'), ('K', 'K')])  # Ignore item order
+    #     self.assertCountEqual(set.intersection(set3).hash.values(), [('B', 'B'),
+    #     ('K', 'K')])  # Ignore item order
 
 if __name__ == '__main__':
     unittest.main()
