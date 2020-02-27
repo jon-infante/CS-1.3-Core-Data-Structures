@@ -40,6 +40,7 @@ class HashSet(object):
         new_set = HashSet()
         for element in self.hash.values():
             new_set.add(element)
+
         for element in other_set.hash.values():
             if not new_set.contains(element):
                 new_set.add(element)
@@ -60,6 +61,7 @@ class HashSet(object):
         new_set = HashSet()
         for element in self.hash.values():
             new_set.add(element)
+            
         for element in other_set.hash.values():
             if new_set.contains(element):
                 new_set.remove(element)
