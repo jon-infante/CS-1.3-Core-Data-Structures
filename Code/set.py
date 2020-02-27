@@ -38,9 +38,9 @@ class HashSet(object):
     def union(self, other_set):
         """Return a new set that is the union of this set and other_set."""
         new_set = HashSet()
-        for element in self.hash.items():
+        for element in self.hash.values():
             new_set.add(element)
-        for element in other_set.hash.items():
+        for element in other_set.hash.values():
             if not new_set.contains(element):
                 new_set.add(element)
 
