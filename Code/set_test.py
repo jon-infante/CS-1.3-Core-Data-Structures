@@ -59,15 +59,15 @@ class SetTest(unittest.TestCase):
         self.assertCountEqual(set.union(set2).hash.values(), ['A', 'B', 'C', 'D', 'F', 'G', 'H'])  # Ignore item order
         self.assertCountEqual(set.union(set3).hash.values(), ['A', 'C', 'D', 'F', 'T', 'Y'])  # Ignore item order
 
-    # def test_intersection(self):
-    #     elements = ['0', 'B', 'C', 'K']
-    #     elements2 = ['0', 'D', 'E', 'C', 'Y', 'K']
-    #     elements3 = ['B', 'D', 'P', 'K', 'G', '9']
-    #     set = HashSet(elements)
-    #     set2 = HashSet(elements2)
-    #     set3 = HashSet(elements3)
-    #     self.assertCountEqual(set.intersection(set2).hash.values(), ['0', 'C', 'K'])  # Ignore item order
-    #     self.assertCountEqual(set.intersection(set3).hash.values(), ['B', 'K']) # Ignore item order
+    def test_intersection(self):
+        elements = ['0', 'B', 'C', 'K']
+        elements2 = ['0', 'D', 'E', 'C', 'Y', 'K']
+        elements3 = ['B', 'D', 'P', 'K', 'G', '9']
+        set = HashSet(elements)
+        set2 = HashSet(elements2)
+        set3 = HashSet(elements3)
+        self.assertCountEqual(set.intersection(set2).hash.values(), ['0', 'C', 'K'])  # Ignore item order
+        self.assertCountEqual(set.intersection(set3).hash.values(), ['B', 'K']) # Ignore item order
 
     def test_difference(self):
         elements = ['4', '7', '8', '9', '0']

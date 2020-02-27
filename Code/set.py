@@ -49,7 +49,11 @@ class HashSet(object):
     def intersection(self, other_set):
         """Return a new set that is the intersection of this set and other_set."""
         new_set = HashSet()
-        pass
+        for element in self.hash.values():
+            if other_set.contains(element):
+                new_set.add(element)
+
+        return new_set
 
     def difference(self, other_set):
         """Return a new set that is the difference of this set and other_set."""
