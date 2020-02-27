@@ -48,25 +48,39 @@ class HashSet(object):
 
     def intersection(self, other_set):
         """Return a new set that is the intersection of this set and other_set."""
+        new_set = HashSet()
         pass
 
     def difference(self, other_set):
         """Return a new set that is the difference of this set and other_set."""
-        pass
+        new_set = HashSet()
+        for element in self.hash.values():
+            new_set.add(element)
+        for element in other_set.hash.values():
+            if new_set.contains(element):
+                new_set.remove(element)
+
+        return new_set
 
     def is_subset(self, other_set):
         """Return a boolean indicating whether other_set is a subset of this set."""
-        pass
+        var = 0
+        for element in other_set.hash.values():
+            if self.contains(element):
+                var += 1
+
+        return self.size == var
 
 
 def test_set():
-    elements = ['A', 'B', 'D', 'F', 'Y']
+    elements = ['A', 'B', 'D', 'F']
     elements2 = ['A', 'B', 'D', 'F', 'G', 'H']
     set = HashSet(elements)
     set2 = HashSet(elements2)
-    print(set.union(set2).hash.values())
+    # print(set.union(set2).hash.values())
     # print(set.intersection(set2).hash.values())
     # print(set.difference(set2).hash.values())
+    print(set.is_subset(set2))
 
 
 if __name__ == '__main__':
