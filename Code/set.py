@@ -32,7 +32,8 @@ class HashSet(object):
 
     def remove(self, element):
         """Remove element from this set, if present, or else raise KeyError.
-        Time Complexity: O(1) avg. from getting the hash value and traversing that bucket."""
+        Time Complexity: O(1) avg. from getting the hash value and traversing that bucket,
+        and worst is O(n) if we have to resize smaller."""
         if not self.contains(element):
             raise KeyError(f'Element does not exist in the set: {element}')
         else:
