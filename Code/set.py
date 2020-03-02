@@ -65,7 +65,7 @@ class HashSet(object):
 
     def difference(self, other_set):
         """Return a new set that is the difference of this set and other_set.
-        Time Complexity: O(n1 + n2)"""
+        Time Complexity: O(n)"""
         new_set = HashSet()
         for element in self.hash.values():
             if not other_set.contains(element):
