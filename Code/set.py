@@ -42,7 +42,7 @@ class HashSet(object):
 
     def union(self, other_set):
         """Return a new set that is the union of this set and other_set.
-        Time Complexity: O(n1 + n2)"""
+        Time Complexity: O(n1 + n2) for going through both self and other_set."""
         new_set = HashSet()
         for element in self.hash.values():
             new_set.add(element)
@@ -55,7 +55,7 @@ class HashSet(object):
 
     def intersection(self, other_set):
         """Return a new set that is the intersection of this set and other_set.
-        Time Complexity: O(n)"""
+        Time Complexity: O(n) for going through each element in self."""
         new_set = HashSet()
         for element in self.hash.values():
             if other_set.contains(element):
@@ -65,7 +65,7 @@ class HashSet(object):
 
     def difference(self, other_set):
         """Return a new set that is the difference of this set and other_set.
-        Time Complexity: O(n)"""
+        Time Complexity: O(n) for going through each element in self."""
         new_set = HashSet()
         for element in self.hash.values():
             if not other_set.contains(element):
@@ -75,15 +75,17 @@ class HashSet(object):
 
     def is_subset(self, other_set):
         """Return a boolean indicating whether other_set is a subset of this set.
-        Time Complexity: O(n)"""
+        Time Complexity:
+        Best Case: O(1) if self is bigger than other set.
+        Average Case: O(n) for looping through all the items."""
         var = 0
         #Checking if the first set is greater, would never be a subset
         if self.size > other_set.size:
             return False
 
-        for element in other_set.hash.values():
-            if self.contains(element):
-                var += 1
+        for element in self.hash.values():
+            if other_set.contains(element):
+                var += 1 #Found an item
 
         return self.size == var
 
