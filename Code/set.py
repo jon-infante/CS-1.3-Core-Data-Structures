@@ -49,7 +49,7 @@ class HashSet(object):
         #Adds remaining other_set elements
         for element in other_set.hash.values():
             if not new_set.contains(element):
-                new_set.add(element)
+                new_set.add(element) #Element was not found in the oher_set
 
         return new_set
 
@@ -59,7 +59,7 @@ class HashSet(object):
         new_set = HashSet()
         for element in self.hash.values():
             if other_set.contains(element):
-                new_set.add(element)
+                new_set.add(element) #Element was found in the other_set
 
         return new_set
 
@@ -69,7 +69,7 @@ class HashSet(object):
         new_set = HashSet()
         for element in self.hash.values():
             if not other_set.contains(element):
-                new_set.add(element)
+                new_set.add(element) #Element was not found in the other_set
 
         return new_set
 
