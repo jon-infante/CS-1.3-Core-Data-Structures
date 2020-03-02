@@ -68,11 +68,8 @@ class HashSet(object):
         Time Complexity: O(n1 + n2)"""
         new_set = HashSet()
         for element in self.hash.values():
-            new_set.add(element)
-        #Removes intersected elements
-        for element in other_set.hash.values():
-            if new_set.contains(element):
-                new_set.remove(element)
+            if not other_set.contains(element):
+                new_set.add(element)
 
         return new_set
 
