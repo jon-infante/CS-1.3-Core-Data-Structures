@@ -12,15 +12,18 @@ class HashSet(object):
                 self.add(item)
 
     def size(self):
-        """Property that tracks the number of elements in constant time."""
+        """Property that tracks the number of elements in constant time.
+        Time Complexity: O(1)"""
         return self.size
 
     def contains(self, element):
-        """Return a boolean indicating whether element is in this set."""
+        """Return a boolean indicating whether element is in this set.
+        Time Complexity: O(1) avg. from getting the hash value and traversing that bucket."""
         return self.hash.contains(element)
 
     def add(self, element):
-        """Add element to this set, if not present already, else raise KeyError."""
+        """Add element to this set, if not present already, else raise KeyError.
+        Time Complexity: O(1) avg., worst being O(n) when we have to resize."""
         if self.contains(element):
             raise KeyError(f'Cannot add element to set again: {element}')
         else:
@@ -28,7 +31,8 @@ class HashSet(object):
             self.size += 1
 
     def remove(self, element):
-        """Remove element from this set, if present, or else raise KeyError."""
+        """Remove element from this set, if present, or else raise KeyError.
+        Time Complexity: O(1) avg. from getting the hash value and traversing that bucket."""
         if not self.contains(element):
             raise KeyError(f'Element does not exist in the set: {element}')
         else:
@@ -36,7 +40,8 @@ class HashSet(object):
             self.size -= 1
 
     def union(self, other_set):
-        """Return a new set that is the union of this set and other_set."""
+        """Return a new set that is the union of this set and other_set.
+        Time Complexity: O(n1 + n2)"""
         new_set = HashSet()
         for element in self.hash.values():
             new_set.add(element)
@@ -48,7 +53,8 @@ class HashSet(object):
         return new_set
 
     def intersection(self, other_set):
-        """Return a new set that is the intersection of this set and other_set."""
+        """Return a new set that is the intersection of this set and other_set.
+        Time Complexity: O(n)"""
         new_set = HashSet()
         for element in self.hash.values():
             if other_set.contains(element):
@@ -57,7 +63,8 @@ class HashSet(object):
         return new_set
 
     def difference(self, other_set):
-        """Return a new set that is the difference of this set and other_set."""
+        """Return a new set that is the difference of this set and other_set.
+        Time Complexity: O(n1 + n2)"""
         new_set = HashSet()
         for element in self.hash.values():
             new_set.add(element)
@@ -69,8 +76,13 @@ class HashSet(object):
         return new_set
 
     def is_subset(self, other_set):
-        """Return a boolean indicating whether other_set is a subset of this set."""
+        """Return a boolean indicating whether other_set is a subset of this set.
+        Time Complexity: O(n)"""
         var = 0
+        #Checking if the first set is greater, would never be a subset
+        if self.size > other_set.size:
+            return False
+
         for element in other_set.hash.values():
             if self.contains(element):
                 var += 1
