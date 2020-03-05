@@ -52,4 +52,4 @@ if __name__ == '__main__':
     scrambled_words = ['thogs', 'bannaa', 'spcieal', 'rinbaow']
     jumble = Jumble(scrambled_words)
     print(jumble.unscramble())
-    # print(jumble.get_permutations("bannaa"))
+    # print(jumble.get_permutations("acr"))
