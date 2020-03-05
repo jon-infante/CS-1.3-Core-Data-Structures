@@ -23,7 +23,7 @@ class Jumble(object):
         self.words = words
         self.hash = HashTable()
         lengths = []
-        #Determining the lengths of the scrambled words, Speeds up the program by 5x
+        #Determining the lengths of the scrambled words, increases speed greatly.
         for scrambled_word in words:
             if len(scrambled_word) not in lengths:
                 lengths.append(len(scrambled_word))
