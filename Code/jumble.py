@@ -24,7 +24,8 @@ class Jumble(object):
         else:
             for char in scrambled_word:
                 for string in self.get_permutations(scrambled_word.replace(char, "", 1)):
-                    permutations.append(char + string)
+                    if (char + string) not in permutations:
+                        permutations.append(char + string)
 
         return permutations
 
