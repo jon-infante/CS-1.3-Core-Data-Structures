@@ -1,7 +1,21 @@
 from hashtable import HashTable
+import time
+
+
+def time_it(func):
+    """Time the runtime of a function that it is wrapping."""
+    def wrapper(*args, **kwargs):
+        start = time.time()
+        result = func(*args, **kwargs)
+        end = time.time()
+        print("{} took {} ms to complete".format(func.__name__, (end - start) * 1000))
+        return result
+    return wrapper
+
 
 class Jumble(object):
 
+    @time_it
     def __init__(self, words):
         """Initialize a new Hash Table and then clean up each line to get individual
         words. Add all the dictionary words to the hash table.
@@ -9,7 +23,7 @@ class Jumble(object):
         self.words = words
         self.hash = HashTable()
         lengths = []
-        #Determining the max length of the word
+        #Determining the lengths of the scrambled words, Speeds up the program by 5x
         for scrambled_word in words:
             if len(scrambled_word) not in lengths:
                 lengths.append(len(scrambled_word))
@@ -50,6 +64,7 @@ class Jumble(object):
 
         return "Word not Found"
 
+    @time_it
     def unscramble(self):
         """Unscramble each word in our list of scrambled words."""
         unscrambled = []
@@ -62,5 +77,6 @@ class Jumble(object):
 if __name__ == '__main__':
     scrambled_words = ['thogs', 'bannaa', 'spcieal', 'rinbaow']
     jumble = Jumble(scrambled_words)
-    print(jumble.unscramble())
+    time_it(jumble.__init__(scrambled_words))
+    # time_it(jumble.unscramble())
     # print(jumble.get_permutations("acr"))
