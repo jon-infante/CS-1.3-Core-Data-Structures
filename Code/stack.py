@@ -29,13 +29,13 @@ class LinkedStack(object):
 
     def push(self, item):
         """Insert the given item on the top of this stack.
-        Running time: O(1) – We have instant access to the tail."""
+        Running time: O(1) – We have instant access to the head."""
         self.list.prepend(item)
 
     def peek(self):
         """Return the item on the top of this stack without removing it,
         or None if this stack is empty.
-        Running time: O(1) – We have instant access to the tail.
+        Running time: O(1) – We have instant access to the head.
         """
         if not self.is_empty():
             return self.list.head.data
@@ -44,7 +44,7 @@ class LinkedStack(object):
     def pop(self):
         """Remove and return the item on the top of this stack,
         or raise ValueError if this stack is empty.
-        Running time: O(1) – We have instant access to the tail."""
+        Running time: O(1) – We have instant access to the head."""
         if self.is_empty():
             raise ValueError("Queue is Empty")
 
