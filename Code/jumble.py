@@ -8,12 +8,20 @@ class Jumble(object):
         """
         self.words = words
         self.hash = HashTable()
+        lengths = []
+        #Determining the max length of the word
+        for scrambled_word in words:
+            if len(scrambled_word) not in lengths:
+                lengths.append(len(scrambled_word))
+
         with open("/usr/share/dict/words", 'r') as f:
             for word in f:
                 #Remove endline characters
                 word = word.strip().lower()
                 #Adds the word back into a hash table from the dictionary
-                self.hash.set(word, word)
+                #Also only sets the word if it equals the length of the scrambled words
+                if len(word) in lengths:
+                    self.hash.set(word, word)
 
     def get_permutations(self, scrambled_word):
         """Get every single permutation of the scrambled word."""
@@ -24,7 +32,7 @@ class Jumble(object):
         else:
             for char in scrambled_word:
                 #Replacing parts of the scrambled word until we get down to 1 letter,
-                #then continue to re-add letters in each call
+                #then continue to re-add strings to the character in each call
                 for string in self.get_permutations(scrambled_word.replace(char, "", 1)):
                     #Checking to not repeat permutations
                     if (char + string) not in permutations:
