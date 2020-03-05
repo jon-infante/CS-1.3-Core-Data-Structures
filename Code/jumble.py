@@ -77,6 +77,7 @@ class Jumble(object):
 if __name__ == '__main__':
     scrambled_words = ['thogs', 'bannaa', 'spcieal', 'rinbaow']
     jumble = Jumble(scrambled_words)
-    time_it(jumble.__init__(scrambled_words))
+    print(jumble.unscramble())
+    # time_it(jumble.__init__(scrambled_words))
     # time_it(jumble.unscramble())
     # print(jumble.get_permutations("acr"))
