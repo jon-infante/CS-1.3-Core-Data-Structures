@@ -18,7 +18,7 @@ class Jumble(object):
     @time_it
     def __init__(self, words):
         """Initialize a new Hash Table and then clean up each line to get individual
-        words. Add all the dictionary words to the hash table.
+        words. Add the dictionary words that equal the length of the scrambled words.
         """
         self.words = words
         self.hash = HashTable()
