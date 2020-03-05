@@ -23,7 +23,7 @@ class Jumble(object):
             return scrambled_word
         else:
             for char in scrambled_word:
-                for string in self.get_permutations(scrambled_word.replace(char, "")):
+                for string in self.get_permutations(scrambled_word.replace(char, "", 1)):
                     permutations.append(char + string)
 
         return permutations
@@ -33,8 +33,7 @@ class Jumble(object):
         table."""
         #Look up the word in the hash table
         for perm in permutations:
-            if self.hash.contains(perm) and
-
+            if self.hash.contains(perm):
                 return self.hash.get(perm)
 
         return "Word not Found"
@@ -51,4 +50,5 @@ class Jumble(object):
 if __name__ == '__main__':
     scrambled_words = ['thogs', 'bannaa', 'spcieal', 'rinbaow']
     jumble = Jumble(scrambled_words)
-    # print(jumble.unscramble())
+    print(jumble.unscramble())
+    # print(jumble.get_permutations("bannaa"))
