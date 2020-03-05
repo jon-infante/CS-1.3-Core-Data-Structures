@@ -23,7 +23,10 @@ class Jumble(object):
             return scrambled_word
         else:
             for char in scrambled_word:
+                #Replacing parts of the scrambled word until we get down to 1 letter,
+                #then continue to re-add letters in each call
                 for string in self.get_permutations(scrambled_word.replace(char, "", 1)):
+                    #Checking to not repeat permutations
                     if (char + string) not in permutations:
                         permutations.append(char + string)
 
